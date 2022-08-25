@@ -21,5 +21,8 @@
   "homepage": "https://github.com/Stricker2/generate-my-team#readme",
   "dependencies": {
     "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^28.1.3"
   }
 }
