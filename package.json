@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Stricker2/generate-my-team/issues"
   },
-  "homepage": "https://github.com/Stricker2/generate-my-team#readme"
+  "homepage": "https://github.com/Stricker2/generate-my-team#readme",
+  "dependencies": {
+    "inquirer": "^8.2.4"
+  }
 }
