@@ -7,6 +7,7 @@ test('creates an engineer', () => {
     expect(engineer.getId()).toEqual(expect.any(Number));
     expect(engineer.getName()).toBe('Andrew');
     expect(engineer.getEmail()).toBe('andrew@gmail.com');
+    expect(engineer.getGithub()).toBe('Stricker2');
 });
 
 // get id from getId()
@@ -29,6 +30,12 @@ test('get engineer email', () => {
 
     expect(engineer.getEmail()).toEqual(expect.any(String));
 });
+
+test("get engineer's github", () => {
+    const engineer = new Engineer (21, 'Andrew', 'andrew@gmail.com', 'Stricker2');
+
+    expect(engineer.getGithub()).toEqual(engineer.github.toString());
+})
 
 // get role from getRole()
 test("get individual's role", () => {
