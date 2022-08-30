@@ -29,6 +29,11 @@ const addEngineer = () => {
             message: "What is the engineer's GitHub username?"
         }
     ])
+    .then((data) => {
+        let engineer = new Engineer(data.name, data.ID, data.email, data.github);
+        team.push(engineer);
+        anotherMember();
+    })
 }
 
 const addIntern = () => {
@@ -54,6 +59,11 @@ const addIntern = () => {
             message: "What is the name of the intern's school?"
         }
     ])
+    .then((data) => {
+        let intern = new Intern(data.name, data.ID, data.email, data.school);
+        team.push(intern);
+        anotherMember();
+    })
 }
 
 const addManager = () => {
@@ -79,5 +89,52 @@ const addManager = () => {
             message: "What is the manager's office number?"
         }
     ])
+    .then((data) => {
+        let manager = new Manager(data.name, data.ID, data.email, data.office);
+        team.push(manager);
+        addTeamMember();
+    })
 }
 
+const addTeamMember = () => {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'employee',
+            choices: ['Engineer', 'Intern', "Don't add another team member"]
+        }
+    ])
+    .then((data) => {
+        if(data.employee === 'Engineer') {
+            addEngineer();
+        } else if (data.employee === 'Intern') {
+            addIntern();
+        } else {
+            createTeam();
+        }
+    })
+}
+
+const anotherMember = () => {
+    inquirer.prompt([
+        {
+            type: 'list',
+            name: 'another',
+            message: 'Do you want to add another team member?',
+            choices: ['Yes', 'No']
+        }
+    ])
+    .then((data) => {
+        if(data.another === 'Yes') {
+            addTeamMember();
+        } else {
+            createTeam();
+        }
+    })
+}
+
+const createTeam = () => {
+    fs.writeFileSync('index.html', createHtml(team))
+}
+
+addManager();
