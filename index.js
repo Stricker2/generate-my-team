@@ -3,7 +3,7 @@ const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
-const createHtml = require('./src/page-template')
+const createEmployees = require('./src/page-template');
 
 const team = [];
 
@@ -111,7 +111,7 @@ const addTeamMember = () => {
         } else if (data.employee === 'Intern') {
             addIntern();
         } else {
-            createTeam();
+            createEmployees(team);
         }
     })
 }
@@ -129,13 +129,9 @@ const anotherMember = () => {
         if(data.another === 'Yes') {
             addTeamMember();
         } else {
-            createTeam();
+            createEmployees(team);
         }
     })
-}
-
-const createTeam = () => {
-    fs.writeFileSync('index.html', createHtml(team))
 }
 
 addManager();
