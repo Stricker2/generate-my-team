@@ -3,8 +3,9 @@ const inquirer = require('inquirer');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+const createHtml = require('./src/page-template')
 
-let team = [];
+const team = [];
 
 const addEngineer = () => {
     inquirer.prompt([
@@ -15,8 +16,8 @@ const addEngineer = () => {
         },
         {
             type: 'input',
-            name: 'ID',
-            message: "What is the engineer's ID number?",
+            name: 'id',
+            message: "What is the engineer's id number?",
         },
         {
             type: 'input',
@@ -30,7 +31,7 @@ const addEngineer = () => {
         }
     ])
     .then((data) => {
-        let engineer = new Engineer(data.name, data.ID, data.email, data.github);
+        let engineer = new Engineer(data.id, data.name, data.email, data.github);
         team.push(engineer);
         anotherMember();
     })
@@ -40,13 +41,13 @@ const addIntern = () => {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'name',
-            message: "What is the intern's name?"
+            name: 'id',
+            message: "What is the intern's id number?",
         },
         {
             type: 'input',
-            name: 'ID',
-            message: "What is the intern's ID number?",
+            name: 'name',
+            message: "What is the intern's name?"
         },
         {
             type: 'input',
@@ -60,7 +61,7 @@ const addIntern = () => {
         }
     ])
     .then((data) => {
-        let intern = new Intern(data.name, data.ID, data.email, data.school);
+        let intern = new Intern(data.id, data.name, data.email, data.school);
         team.push(intern);
         anotherMember();
     })
@@ -70,27 +71,27 @@ const addManager = () => {
     inquirer.prompt([
         {
             type: 'input',
-            name: 'name',
-            message: "What is the manager's name?"
+            name: 'id',
+            message: "What is the manager's id number?",
         },
         {
             type: 'input',
-            name: 'ID',
-            message: "What is the manager's ID number?",
+            name: 'name',
+            message: "What is the manager's name?",
         },
         {
             type: 'input',
             name: 'email',
-            message: "What is the manager's email?"
+            message: "What is the manager's email?",
         },
         {
             type: 'input',
             name: 'office',
-            message: "What is the manager's office number?"
-        }
+            message: "What is the manager's office number?",
+        },
     ])
     .then((data) => {
-        let manager = new Manager(data.name, data.ID, data.email, data.office);
+        let manager = new Manager(data.id, data.name, data.email, data.office);
         team.push(manager);
         addTeamMember();
     })
