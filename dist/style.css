@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+.page-header {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #ffffff;
+    background-color: #790e0e;
+}
+
+.header {
+    padding: 10px 0;
+}
+
+.team-box {
+    display: flex;
+    justify-content: center;
+}
+
+.manager-box {
+    width: fit-content;
+}
+
+.employee-box {
+    border: 2px solid #790e0e;
+    margin: 10px;
+}
+
+.employee-title {
+    padding: 4px;
+    background-color: #790e0e;
+    color: #ffffff;
+}
+
+.employee-info {
+    display: inline-block;
+    padding: 4px;
+
+}

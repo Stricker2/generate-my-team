@@ -10,18 +10,46 @@ const createEmployees = employeeData => {
     employeeData.forEach(element => {
         if (element instanceof Manager) {
             html +=`
-            <div>
-                ${element.name}
-                ${element.id}
-                ${element.email}
-                ${element.officeNumber}
-            </div>
+            <article class="manager-box employee-box">
+                <div class="employee-title">
+                    <h3>Manager</h3>
+                    <h4>${element.name}</h4>
+                </div>
+                <div class="employee-info">
+                    <p>Employee ID: ${element.id}</p>
+                    <p>Email: ${element.email}</p>
+                    <p>Office Number: ${element.officeNumber}</p>
+                </div>
+            </article>
             `
-            console.log('this is a manager: ', element.officeNumber)
         } else if (element instanceof Engineer) {
-            console.log('this is a engineer: ', element.github)
+            html +=`
+            <article class="employee-box">
+                <div class="employee-title">
+                    <h3>Engineer</h3>
+                    <h4>${element.name}</h4>
+                </div>
+                <div class="employee-info">
+                    <p>Employee ID: ${element.id}</p>
+                    <p>Email: ${element.email}</p>
+                    <p>Github: ${element.github}</p>
+                </div>
+            </article>
+            `
         } else if (element instanceof Intern) {
-            console.log('this is a intern: ', element.school)
+            html +=`
+            <article class="employee-box">
+                <div class="employee-title">
+                    <h3>Intern</h3>
+                    <h4>${element.name}</h4>
+                </div>
+                <div class="employee-info">
+                    <p>Employee ID: ${element.id}</p>
+                    <p>Email: ${element.email}</p>
+                    <p>School: ${element.school}</p>
+                </div>
+            </article>
+            `
         }
     });
 
@@ -33,11 +61,18 @@ const createEmployees = employeeData => {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./style.css" />
     <title>Team Generator</title>
     </head>
 
+    <header class="page-header">
+        <h1 class="header">My Team</h1>
+    </header>
+
     <body>
-        <div>${html}</div>
+        <section class="team-box">
+            ${html}
+        </section>
     </body>
     `
 
