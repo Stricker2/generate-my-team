@@ -2,53 +2,54 @@ const fs = require('fs');
 const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
-let html = '';
+let htmlManager = '';
+let htmlEmployee = '';
 
 const createEmployees = employeeData => {
     // console.log(employeeData)
 
     employeeData.forEach(element => {
         if (element instanceof Manager) {
-            html +=`
-            <article class="manager-box employee-box">
+            htmlManager +=`
+            <div class="manager-box employee-box">
                 <div class="employee-title">
                     <h3>Manager</h3>
                     <h4>${element.name}</h4>
                 </div>
                 <div class="employee-info">
-                    <p>Employee ID: ${element.id}</p>
-                    <p>Email: ${element.email}</p>
-                    <p>Office Number: ${element.officeNumber}</p>
+                    <p><span class="label">Employee ID: </span>${element.id}</p>
+                    <p><span class="label">Email: </span>${element.email}</p>
+                    <p><span class="label">Office Number: </span>${element.officeNumber}</p>
                 </div>
-            </article>
+            </div>
             `
         } else if (element instanceof Engineer) {
-            html +=`
-            <article class="employee-box">
+            htmlEmployee +=`
+            <div class="employee-box">
                 <div class="employee-title">
                     <h3>Engineer</h3>
                     <h4>${element.name}</h4>
                 </div>
                 <div class="employee-info">
-                    <p>Employee ID: ${element.id}</p>
-                    <p>Email: ${element.email}</p>
-                    <p>Github: ${element.github}</p>
+                    <p><span class="label">Employee ID: </span>${element.id}</p>
+                    <p><span class="label">Email: </span><a href="mailto:${element.email}">${element.email}</a></p>
+                    <p><span class="label">Github: </span><a href=https://github.com/${element.github}>${element.github}</a></p>
                 </div>
-            </article>
+            </div>
             `
         } else if (element instanceof Intern) {
-            html +=`
-            <article class="employee-box">
+            htmlEmployee +=`
+            <div class="employee-box">
                 <div class="employee-title">
                     <h3>Intern</h3>
                     <h4>${element.name}</h4>
                 </div>
                 <div class="employee-info">
-                    <p>Employee ID: ${element.id}</p>
-                    <p>Email: ${element.email}</p>
-                    <p>School: ${element.school}</p>
+                    <p><span class="label">Employee ID: </span>${element.id}</p>
+                    <p><span class="label">Email: </span>${element.email}</p>
+                    <p><span class="label">School: </span>${element.school}</p>
                 </div>
-            </article>
+            </div>
             `
         }
     });
@@ -71,7 +72,12 @@ const createEmployees = employeeData => {
 
     <body>
         <section class="team-box">
-            ${html}
+            <article class="manager">
+                ${htmlManager}
+            </article>
+            <article class="employee">
+                ${htmlEmployee}
+            </article>
         </section>
     </body>
     `
