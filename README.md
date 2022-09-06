@@ -14,7 +14,7 @@ Node.js application that takes in information about a software engineering team 
 
 ## Walkthrough Video
 
-Link: 
+Link: https://drive.google.com/file/d/1CByRZBdQhp6eh_Nrhf5G-g_xMfCHvYSo/view?usp=sharing
 
 ## Contributors
 This application was created by Andrew Secore
