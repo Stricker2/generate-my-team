@@ -6,7 +6,6 @@ let htmlManager = '';
 let htmlEmployee = '';
 
 const createEmployees = employeeData => {
-    // console.log(employeeData)
 
     employeeData.forEach(element => {
         if (element instanceof Manager) {
@@ -86,9 +85,5 @@ const createEmployees = employeeData => {
         console.log("Success!!")
     })
 }
-
-// const generateHtml = (html) => { 
-    
-// }
 
 module.exports = createEmployees;
